@@ -14,8 +14,8 @@ const db = mysql.createConnection(
     // Your MySQL username,
     user: "root",
     // Your MySQL password
-    password: "",
-    database: "election"
+    // password: "",
+    database: "election",
   },
   console.log("Connected to the election database.")
 );
@@ -37,9 +37,9 @@ console.log(rows);
 // });
 
 // Default response for any other request (Not Found)
-app.use((req, res) => {
-  res.status(404).end();
-});
+// app.use((req, res) => {
+//   res.status(404).end();
+// });
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
