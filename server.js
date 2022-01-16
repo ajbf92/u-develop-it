@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const db = require('./db/connection');
 const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -8,19 +8,7 @@ const inputCheck = require("./utils/inputCheck");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Connect to database
-const db = mysql.createConnection(
-  {
-    // host has to be 127.0.0.1 instead of localhost
-    host: "127.0.0.1",
-    // Your MySQL username,
-    user: "root",
-    // Your MySQL password is commented out because i do not use a password
-    // password: "",
-    database: "election",
-  },
-  console.log("Connected to the election database.")
-);
+
 // runs query to bring back all candidates without a get/post request
 // db.query(`SELECT * FROM candidates`, (err, rows) => {
 //   console.log(rows);
